@@ -12,5 +12,4 @@ flask-lambda-python36 = "*"
 [requires]
 python_version = "3.7"
 
-[scripts]
-build_archive = "/bin/bash ./build_archive.sh"
+
