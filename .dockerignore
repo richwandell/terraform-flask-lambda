@@ -1,0 +1,10 @@
+.venv
+.idea
+*.tf
+.terraform
+.env
+.gitignore
+.tfvars
+*.zip
+docker-compose.yml
+.git

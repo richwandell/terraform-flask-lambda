@@ -1,0 +1,16 @@
+version: '3'
+services:
+  build_service:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    volumes:
+    - .:/app_build
+  test_build:
+    build:
+      context: .
+      dockerfile: test_build/Dockerfile
+    volumes:
+    - .:/app_build
+    ports:
+    - 5000:5000
