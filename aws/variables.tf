@@ -12,3 +12,11 @@ variable "runtime" {
   description = "Python version"
   default = "python3.6"
 }
+
+variable "postgres_user" {
+  description = "Username for postgres"
+}
+
+variable "postgres_pass" {
+  description = "Password for postgres"
+}

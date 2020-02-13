@@ -24,12 +24,20 @@ should be no need to install python requirements. If everything works you should
 able to open `http://localhost:5000/hello_lambda` and you will get a response.
 
 ## Terraform
-First create a file `.backend.tf` with reference to a AWS S3 bucket for use 
-with the Terraform s3 backend. 
+Inside of the `aws` folder, create a file `.backend.tf` with reference to a AWS S3 bucket for use 
+with the Terraform s3 backend. And a `terraform.tfvars` file containing credentials you would like to 
+use for postgres.
+
+*.backend.tf*
 ```hcl-terraform
 bucket = "some-s3-bucket"
 key = "path/to/terraform.tfstate"
 region = "some region"
+```
+*terraform.tfvars*
+```hcl-terraform
+postgres_pass = "somepgpass"
+postgres_user = "somepguser"
 ```
 Now initialize terraform using `terraform init --backend-config .backend.tf`. This should create a file
 storing the terraform state in the s3 bucket. 

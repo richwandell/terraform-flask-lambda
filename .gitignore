@@ -1,7 +1,8 @@
-.tfvars
+terraform.tfvars
 .idea
 .terraform
 .venv
 lambda.zip
 .backend.tf
 flask-app.zip
+aws/.terraform
