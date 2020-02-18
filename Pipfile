@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-lambda-python36 = "*"
+Flask-Migrate = "*"
+Flask-SQLAlchemy = "*"
+sqlalchemy = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

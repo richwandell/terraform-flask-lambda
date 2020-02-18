@@ -14,3 +14,15 @@ services:
     - .:/app_build
     ports:
     - 5000:5000
+  db:
+    image: postgres
+    restart: always
+    ports:
+    - 65432:5432
+    environment:
+      POSTGRES_PASSWORD: example
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
