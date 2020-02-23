@@ -1,8 +1,8 @@
 module.exports = {
-    entry: __dirname + '/src/js/index.jsx',
+    entry: __dirname + '/webpack/js/index.jsx',
     output: {
         filename: 'App.js',
-        path: __dirname + '/dist'
+        path: __dirname + '/app/static/dist'
     },
     resolve: {
         extensions: ['.js', '.jsx']
