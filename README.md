@@ -46,3 +46,9 @@ After terraform is initialized run `terraform plan` and then `terraform apply`.
 
 If everything works correctly you should have a running flask app deployed to AWS
 Lambda.
+
+### Dotenv
+When using windows you can load environment variables in the cmd.exe terminal using the 
+provided .bat script `dotenv.bat`. This file will read through a `.env` file with 
+settings in the format `SETTING=VALUE` and it will add these to the terminal environment.
+OSX and Linux can set environment variables using `dotenv.sh`.
