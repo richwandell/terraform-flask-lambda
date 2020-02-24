@@ -61,4 +61,6 @@ SESSION_REDIS=redis://localhost:63798
 The python package `python-dotenv` is used to load these environment variables from 
 a `.env` file. Once this file is created you can run the flask commands as usual.
 
-
+## SQLAlchemy and Migrations
+SQLAlchemy is used to create database model files. Migrations are generated from the model files using `Flask-Migrate`.
+Update your local database using `flask db upgrade`.

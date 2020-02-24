@@ -21,6 +21,7 @@ services:
     - 65432:5432
     environment:
       POSTGRES_PASSWORD: example
+    command: postgres -c logging_collector=on -c log_destination=stderr -c log_directory=pg_log -c log_statement=all
   adminer:
     image: adminer
     restart: always

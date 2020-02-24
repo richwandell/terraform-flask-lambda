@@ -1,8 +1,8 @@
-"""create first tables
+"""create tables
 
-Revision ID: 64c2314eb9d9
+Revision ID: 365d7ed18c6a
 Revises: 
-Create Date: 2020-02-23 15:27:03.228179
+Create Date: 2020-02-23 22:04:03.654535
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '64c2314eb9d9'
+revision = '365d7ed18c6a'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -28,10 +28,10 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('first_name', sa.String(), nullable=True),
     sa.Column('last_name', sa.String(), nullable=True),
-    sa.Column('account', sa.Integer(), nullable=True),
+    sa.Column('account_id', sa.Integer(), nullable=True),
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('password_hash', sa.String(length=158), nullable=False),
-    sa.ForeignKeyConstraint(['account'], ['account.id'], ),
+    sa.ForeignKeyConstraint(['account_id'], ['account.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_user_password_hash'), 'user', ['password_hash'], unique=False)
