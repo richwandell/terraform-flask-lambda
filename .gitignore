@@ -8,3 +8,4 @@ flask-app.zip
 aws/.terraform
 .env
 node_modules
+app/static/dist

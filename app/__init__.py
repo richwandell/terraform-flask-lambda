@@ -1,4 +1,5 @@
 from flask_migrate import Migrate
+from flask_session import Session
 
 import config, os
 
@@ -14,6 +15,10 @@ def create_app(Flask):
 
     from .models import db
     db.init_app(app)
-    migrate = Migrate(app, db)
+    Migrate(app, db)
+    Session(app)
+
+    from .api.oauth import oauth
+    oauth.init_app(app)
 
     return app

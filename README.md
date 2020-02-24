@@ -48,7 +48,17 @@ If everything works correctly you should have a running flask app deployed to AW
 Lambda.
 
 ### Dotenv
-When using windows you can load environment variables in the cmd.exe terminal using the 
-provided .bat script `dotenv.bat`. This file will read through a `.env` file with 
-settings in the format `SETTING=VALUE` and it will add these to the terminal environment.
-OSX and Linux can set environment variables using `dotenv.sh`.
+This app uses environment variables for configuration. For local development, create a file `.env` and
+add the following lines.
+```.env
+FLASK_APP=run.py
+FLASK_ENV=development
+FLASK_DEBUG=1
+SECRET_KEY=12345
+DATABASE_URL=postgres://postgres:example@localhost:65432/postgres
+SESSION_REDIS=redis://localhost:63798
+```
+The python package `python-dotenv` is used to load these environment variables from 
+a `.env` file. Once this file is created you can run the flask commands as usual.
+
+

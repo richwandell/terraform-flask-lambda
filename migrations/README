@@ -1,1 +1,5 @@
 Generic single-database configuration.
+
+op.bulk_insert(accounts_table, [
+        {'id': 0, 'name': 'no account'}
+    ])

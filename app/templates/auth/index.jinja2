@@ -1,0 +1,6 @@
+{% extends 'base.jinja2' %}
+
+{% block all_content %}
+    <div id="react_renderer"></div>
+    <script src="{{ url_for('static', filename='dist/App.js') }}"></script>
+{% endblock %}

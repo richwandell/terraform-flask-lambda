@@ -12,8 +12,13 @@ Flask-Migrate = "*"
 Flask-SQLAlchemy = "*"
 sqlalchemy = "*"
 psycopg2 = "*"
+python-dotenv = "*"
+flask-session = "*"
+redis = "*"
+requests-oauthlib = "==1.1.0"
+flask-oauthlib = "*"
+oauthlib = "*"
+werkzeug = "==0.16.0"
 
 [requires]
 python_version = "3.7"
-
-

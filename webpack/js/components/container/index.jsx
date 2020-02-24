@@ -1,17 +1,42 @@
-import React, { useState } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import axios from 'axios';
+import {setInitialData, setUser, testClient} from "../actions";
+import {appReducer, initialState} from "../reducers";
+import {Nav} from "../presentation/Nav";
+import {ClientList} from "../presentation/ClientList";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
+import {ApiTest} from "../presentation/ApiTest";
 
-function Example() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+
+export default function App() {
+  const [state, dispatch] = useReducer(appReducer, initialState);
+
+  useEffect(() => {
+      axios('/index/get_initial_data')
+          .then((result) => {
+              dispatch(setInitialData(result.data))
+          });
+  }, []);
 
   return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
+      <div>
+          <Nav user={state.user} app={state.app} />
+          <Router>
+            <Switch>
+                <Route exact path="/">
+                  <ClientList
+                      testClient={(client) => dispatch(testClient(client))}
+                      user={state.user}
+                      app={state.app}
+                      clients={state.clients} />
+                </Route>
+                <Route path="*">
+                    <ApiTest />
+                </Route>
+            </Switch>
+        </Router>
+      </div>
   );
 }
 
-export default Example;
+
