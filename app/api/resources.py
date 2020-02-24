@@ -1,5 +1,8 @@
 from flask import Blueprint, render_template
 from flask import request, jsonify
+from flask_graphql import GraphQLView
+
+from .graphql import schema
 from .oauth import oauth
 from ..auth.resources import login_required
 from .models import Client
@@ -33,3 +36,18 @@ def authorize(*args, **kwargs):
 @oauth.token_handler
 def access_token():
     return None
+
+
+def graphql_view():
+    view = GraphQLView.as_view(
+        'graphql',
+        schema=schema,
+        graphiql=True  # for having the GraphiQL interface
+    )
+    return login_required(view)
+
+
+api.add_url_rule(
+    '/graphql',
+    view_func=graphql_view()
+)
